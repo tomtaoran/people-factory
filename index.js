@@ -39,7 +39,7 @@ function decimalToHex(d) {
 function changeAppearance(ev){
     ev.preventDefault()
     const f= ev.target
-    const heading = document.querySelector('h1')
+    const heading = document.querySelector('.reverse')
     const str= heading.textContent
     //alert(colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value)) -- This is for debugging purpose
     heading.style.color = colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value);
