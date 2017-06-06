@@ -7,7 +7,8 @@ function handleSubmit(ev){
     const details = document.querySelector('#details')
     //heading.textContent = f.personName.value + ' is now age ' + f.personAge.value
     const name = f.personName.value
-    details.innerHTML += '<strong>' + name + '</strong>'
+   // details.innerHTML += '<strong>' + name + '</strong>'
+    details.innerHTML += `<strong>${name}</strong>`
 }
 
 function reverseString(ev) {
