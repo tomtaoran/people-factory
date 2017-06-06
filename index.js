@@ -9,6 +9,24 @@ function renderColor(color){
     return div
 }
 
+function renderListItem(label, value){
+    const item = document.createElement('li')
+    item.textContent = `${label}: ${value}`
+    return item
+}
+function renderList(personData){
+    const list = document.createElement('ul')
+    //call renderListItem several times
+    // map to the same thing to every single elements
+    //data['key'] or data.key if the name is following variable naming rules.
+    Object.keys(personData).map(function(label){
+        const item =renderListItem(label,personData[label])
+        list.appendChild(item)
+    })
+    //['name','favoriteColor', 'Age']
+    return list
+}
+
 function handleSubmit(ev){
     ev.preventDefault() //just to stop the default refresh
     const f= ev.target
@@ -29,18 +47,18 @@ function handleSubmit(ev){
 
     const list = document.createElement('ul');
 
-    const nameItem = document.createElement('li');
-    nameItem.textContent = `Name: ${name}`;
+    // const nameItem = document.createElement('li');
+    // nameItem.textContent = `Name: ${name}`;
     
-    const colorItem = document.createElement('li');
-    colorItem.innerHTML=`Favorite Color: ${renderColor(favoriteColor).outerHTML}`;
-    const ageItem = document.createElement('li');
-    ageItem.textContent=`Age: ${age}`;
+    // const colorItem = document.createElement('li');
+    // colorItem.innerHTML=`Favorite Color: ${renderColor(favoriteColor).outerHTML}`;
+    // const ageItem = document.createElement('li');
+    // ageItem.textContent=`Age: ${age}`;
     
 
-    list.appendChild(nameItem);
-    list.appendChild(colorItem);
-    list.appendChild(ageItem);
+    // list.appendChild(nameItem);
+    // list.appendChild(colorItem);
+    // list.appendChild(ageItem);
     details.appendChild(list);
    /*innerHTML way to do details
     details.innerHTML=`
@@ -85,6 +103,12 @@ function changeAppearance(ev){
     const f= ev.target
     const heading = document.querySelector('.reverse')
     const str= heading.textContent
+    const person ={
+        name: f.personName.value,
+        favoriteColor: f.favoriteColor.value,
+        age: f.age.value,
+    }
+    details.appendChild(renderList(person))
     //alert(colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value)) -- This is for debugging purpose
     heading.style.color = colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value);
     //We change the heading's color by RGB provided from User's form.
