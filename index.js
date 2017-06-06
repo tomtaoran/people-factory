@@ -8,7 +8,10 @@ function handleSubmit(ev){
     //heading.textContent = f.personName.value + ' is now age ' + f.personAge.value
     const name = f.personName.value
    // details.innerHTML += '<strong>' + name + '</strong>'
-    details.innerHTML += `<strong>${name}</strong>`
+   const boldedName = document.createElement('strong')
+   boldedName.textContent= name
+    //details.innerHTML += `<strong>${name}</strong>`
+    details.appendChild(boldedName)
 }
 
 function reverseString(ev) {
