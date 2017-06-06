@@ -7,11 +7,20 @@ function handleSubmit(ev){
     const details = document.querySelector('#details')
     //heading.textContent = f.personName.value + ' is now age ' + f.personAge.value
     const name = f.personName.value
+    const favoriteColor=f.favoriteColor.value
+    const age = f.age.value
    // details.innerHTML += '<strong>' + name + '</strong>'
-   const boldedName = document.createElement('strong') //any HTML element tags is valid here.
-   boldedName.textContent= name
+   //const boldedName = document.createElement('strong') //any HTML element tags is valid here.
+   //boldedName.textContent= name
     //details.innerHTML += `<strong>${name}</strong>`
-    details.appendChild(boldedName)
+    //details.appendChild(boldedName)
+    details.innerHTML=`
+    <ul>
+        <li>Name: ${name}</li>
+        <li>Favorite Color: ${favoriteColor}</li>
+        <li>Age: ${age}</li>
+    </ul>
+    `
 }
 
 function reverseString(ev) {
