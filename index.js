@@ -4,9 +4,10 @@ const personForm = document.querySelector('#personForm')
 function handleSubmit(ev){
     ev.preventDefault() //just to stop the default refresh
     const f= ev.target
-    const heading = document.querySelector('h1')
-    heading.textContent = f.personName.value + ' is now age ' + f.personAge.value
-
+    const details = document.querySelector('#details')
+    //heading.textContent = f.personName.value + ' is now age ' + f.personAge.value
+    const name = f.personName.value
+    details.innerHTML += '<strong>' + name + '</strong>'
 }
 
 function reverseString(ev) {
