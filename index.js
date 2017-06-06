@@ -9,18 +9,40 @@ function handleSubmit(ev){
     const name = f.personName.value
     const favoriteColor=f.favoriteColor.value
     const age = f.age.value
+    const colorDiv = `
+    <div style="background-color: ${favoriteColor}; width: 100px; height:50px;"></div>
+    `
+    //Note that this method is nasty to read but work fine here, and also for color, we HAVE to give it a space to show up. otherwise it is empty.
    // details.innerHTML += '<strong>' + name + '</strong>'
    //const boldedName = document.createElement('strong') //any HTML element tags is valid here.
    //boldedName.textContent= name
     //details.innerHTML += `<strong>${name}</strong>`
     //details.appendChild(boldedName)
+
+    const list = document.createElement('ul');
+
+    const nameItem = document.createElement('li');
+    nameItem.textContent = `Name: ${name}`;
+    
+    const colorItem = document.createElement('li');
+    colorItem.innerHTML=`Favorite Color: ${colorDiv}`;
+    const ageItem = document.createElement('li');
+    ageItem.textContent=`Age: ${age}`;
+    
+
+    list.appendChild(nameItem);
+    list.appendChild(colorItem);
+    list.appendChild(ageItem);
+    details.appendChild(list);
+   /*innerHTML way to do details
     details.innerHTML=`
     <ul>
         <li>Name: ${name}</li>
-        <li>Favorite Color: ${favoriteColor}</li>
+        <li>Favorite Color: ${colorDiv}</li>
         <li>Age: ${age}</li>
     </ul>
     `
+    */
 }
 
 function reverseString(ev) {
