@@ -24,18 +24,27 @@ function reverseString(ev) {
     paragraph.textContent = joinArray
 }
 
+function colorToHex(red,green,blue) {
+    return '#' + decimalToHex(red) + decimalToHex(green) + decimalToHex(blue);
+};
+
+function decimalToHex(d) {
+  var hex = Number(d).toString(16).toUpperCase();
+  if(d<16){
+      return '0'+hex;
+  }
+  return hex;
+}
+
 function changeAppearance(ev){
     ev.preventDefault()
     const f= ev.target
     const heading = document.querySelector('h1')
     const str= heading.textContent
-    if(f.personAge.value>=75){
-        heading.style.color = "red";
-    }else{
-        heading.style.color = "blue";
-    }
-    //We change the heading's color by age.
-    //Side Note: If you are young (in my belief), color is blue, otherwise, color is red.
+    alert(colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value))// -- This is for debugging purpose
+    heading.style.color = colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value);
+    //We change the heading's color by RGB provided from User's form.
+    //Side Note: style.color only support HEX value, so we need to covert before preceed
 }
 personForm.addEventListener('submit', handleSubmit) //Do NOT do handleSubmit(ev) here. otherwise we are only using the return value!!!
 personForm.addEventListener('submit', reverseString)
