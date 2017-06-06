@@ -41,7 +41,7 @@ function changeAppearance(ev){
     const f= ev.target
     const heading = document.querySelector('h1')
     const str= heading.textContent
-    alert(colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value))// -- This is for debugging purpose
+    //alert(colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value)) -- This is for debugging purpose
     heading.style.color = colorToHex(f.colorRed.value,f.colorGreen.value,f.colorBlue.value);
     //We change the heading's color by RGB provided from User's form.
     //Side Note: style.color only support HEX value, so we need to covert before preceed
